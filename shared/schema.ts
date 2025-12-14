@@ -21,7 +21,7 @@ export type User = typeof users.$inferSelect;
 export const bookingSchema = z.object({
   name: z.string().min(2, "Имя должно содержать минимум 2 символа"),
   phone: z.string().min(10, "Введите корректный номер телефона"),
-  email: z.string().email("Введите корректный email"),
+  email: z.string().email("Введите корректный email").optional().or(z.literal("")),
   date: z.string().min(1, "Выберите дату"),
   time: z.string().min(1, "Выберите время"),
   zone: z.string().min(1, "Выберите зал"),

@@ -26,6 +26,7 @@ import {
   MapWrapper,
   MapPlaceholder,
   SuccessMessage,
+  ErrorMessage,
 } from './style';
 
 const Contact = () => {
@@ -41,6 +42,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -50,6 +52,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
 
     try {
       const response = await fetch('/api/booking', {
@@ -71,9 +74,15 @@ const Contact = () => {
           message: '',
         });
         setTimeout(() => setIsSuccess(false), 5000);
+      } else {
+        const data = await response.json();
+        setError(data.message || 'Произошла ошибка при отправке заявки');
+        setTimeout(() => setError(''), 5000);
       }
-    } catch (error) {
-      console.error('Booking error:', error);
+    } catch (err) {
+      console.error('Booking error:', err);
+      setError('Ошибка сети. Попробуйте еще раз.');
+      setTimeout(() => setError(''), 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -231,6 +240,12 @@ const Contact = () => {
                   <SuccessMessage data-testid="success-message">
                     Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.
                   </SuccessMessage>
+                )}
+                
+                {error && (
+                  <ErrorMessage data-testid="error-message">
+                    {error}
+                  </ErrorMessage>
                 )}
               </FormGroup>
             </FormGrid>

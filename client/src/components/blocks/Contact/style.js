@@ -327,3 +327,14 @@ export const SuccessMessage = styled.div`
   text-align: center;
   margin-top: 1rem;
 `;
+
+export const ErrorMessage = styled.div`
+  padding: 1rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  color: #EF4444;
+  font-size: ${({ theme }) => theme.fontSizes.sm};
+  text-align: center;
+  margin-top: 1rem;
+`;
