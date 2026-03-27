@@ -35,7 +35,7 @@ const tournaments = [
     prize: '50 000₽',
     status: 'open',
     statusLabel: 'Открыта',
-    image: 'https://community.skin.club/wp-content/uploads/2025/09/cs2.jpg.webp',
+    image: '/images/gallery-08.webp',
   },
   {
     id: 2,
@@ -48,7 +48,7 @@ const tournaments = [
     prize: '75 000₽',
     status: 'open',
     statusLabel: 'Открыта',
-    image: 'https://stoneforest.ru/wp-content/uploads/2024/03/dota-2-istorija-1.jpg',
+    image: '/images/gallery-09.jpg',
   },
   {
     id: 3,
@@ -61,7 +61,7 @@ const tournaments = [
     prize: '40 000₽',
     status: 'soon',
     statusLabel: 'Скоро',
-    image: 'https://i.guim.co.uk/img/media/d5eab25b9cd2a38580bf8a13e7756b2eb27e6a5d/79_167_1047_628/master/1047.jpg?width=1200&quality=85&auto=format&fit=max&s=5f707d27cfeb0f6b39090e8db40c3144',
+    image: '/images/gallery-10.webp',
   },
   {
     id: 4,
@@ -74,7 +74,7 @@ const tournaments = [
     prize: '20 000₽',
     status: 'soon',
     statusLabel: 'Скоро',
-    image: 'https://img.asmedia.epimg.net/resizer/v2/VZCOELXOSZEGTNIOQBV4C7UX2Q.jpg?auth=ed45f3fab93199d7dcc1e900831c4008a57d584ac0d9c0a3a05ee8d2e1224052&width=1472&height=828&smart=true',
+    image: '/images/gallery-11.avif',
   },
   {
     id: 5,
@@ -87,7 +87,7 @@ const tournaments = [
     prize: '30 000₽',
     status: 'soon',
     statusLabel: 'Скоро',
-    image: 'https://cdn2.unrealengine.com/fortnite-cyber-city-callout-1920x1080-438b539f6ead.jpg',
+    image: '/images/gallery-12.jpg',
   },
   {
     id: 6,
@@ -100,7 +100,7 @@ const tournaments = [
     prize: '100 000₽',
     status: 'soon',
     statusLabel: 'Скоро',
-    image: 'https://cdn.playersupport.riotgames.com/support-site/images/lol/masthead/background.webp',
+    image: '/images/gallery-13.webp',
   },
 ];
 

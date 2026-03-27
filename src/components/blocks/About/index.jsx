@@ -43,8 +43,8 @@ const About = () => {
         <AboutGrid>
           <AboutImageWrapper>
             <img
-              src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1000&q=80"
-              alt="Gaming setup"
+              src="/images/gallery-01.avif"
+              alt="CyberArena — зона для игроков"
             />
           </AboutImageWrapper>
 

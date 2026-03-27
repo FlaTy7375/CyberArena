@@ -11,42 +11,15 @@ import {
   GalleryCaption,
 } from './style';
 
+/** Фото 14–20: после About, зон и турниров (фон Hero — стоковое фото) */
 const galleryImages = [
-  {
-    id: 1,
-    src: 'https://minsknews.by/wp-content/uploads/2022/09/Pavel-Rusak-18-of-44-kopiya.jpg',
-    caption: 'Турнирная зона',
-  },
-  {
-    id: 2,
-    src: 'https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=800&q=80',
-    caption: 'Игровые ПК',
-  },
-  {
-    id: 3,
-    src: 'https://p1.zoon.ru/preview/m75QVck7faIHPOeBaVG8Xw/630x384x85/1/6/7/original_62b9e60b300c81aaa0036fae_62c2a466b77b80.44278523.jpg',
-    caption: 'PRO Zone',
-  },
-  {
-    id: 4,
-    src: 'https://avatars.mds.yandex.net/get-altay/9831576/2a000001915b3bc32f115fdc116d1ad01f6c/orig',
-    caption: 'Рабочие станции',
-  },
-  {
-    id: 5,
-    src: 'https://mayak.app/media/65/65152437c6099331570086.webp?nocache=1&size=3',
-    caption: 'VR Zone',
-  },
-  {
-    id: 6,
-    src: 'https://checkpointclub.by/wp-content/uploads/2023/09/IMG_4664-scaled-e1695325944185.jpg',
-    caption: 'Console Zone',
-  },
-  {
-    id: 7,
-    src: 'https://avatars.mds.yandex.net/get-altay/16379675/2a0000019aba8de636b31abe03432b51a85f/orig',
-    caption: 'Стрим-студия',
-  },
+  { id: 1, src: '/images/gallery-14.jpg', caption: 'Фото клуба 14' },
+  { id: 2, src: '/images/gallery-15.jpg', caption: 'Фото клуба 15' },
+  { id: 3, src: '/images/gallery-16.jpeg', caption: 'Фото клуба 16' },
+  { id: 4, src: '/images/gallery-17.jpeg', caption: 'Фото клуба 17' },
+  { id: 5, src: '/images/gallery-18.avif', caption: 'Фото клуба 18' },
+  { id: 6, src: '/images/gallery-19.avif', caption: 'Фото клуба 19' },
+  { id: 7, src: '/images/gallery-20.jpg', caption: 'Фото клуба 20' },
 ];
 
 const Gallery = () => {
