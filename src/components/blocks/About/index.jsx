@@ -1,72 +1,118 @@
-import { Monitor, Headphones, Trophy, Users } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import SectionHeader from '../../ui/SectionHeader';
+import PCSceneCanvas from './PCSceneCanvas';
+import { initSmoothScroll } from './pcScrollAnimation';
 import {
   AboutWrapper,
   AboutContainer,
   AboutGrid,
+  DesktopHeaderSlot,
+  MobileHeaderSlot,
+  AboutVisualColumn,
   AboutImageWrapper,
+  ImageCaption,
   AboutContent,
-  AboutLabel,
-  AboutTitle,
   AboutText,
   FeaturesList,
   FeatureItem,
+  FeatureIndex,
   FeatureText,
 } from './style';
 
 const features = [
   {
-    icon: Monitor,
-    title: 'Топовое железо',
-    description: 'RTX 4080, Intel i9, 32GB RAM',
+    index: '01',
+    title: 'Железо без компромиссов',
+    description: 'RTX 4080 / i9-14900K / 64 ГБ DDR5',
   },
   {
-    icon: Headphones,
-    title: 'Премиум периферия',
-    description: 'Logitech, HyperX, SteelSeries',
+    index: '02',
+    title: 'Периферия про-уровня',
+    description: 'Logitech · HyperX · SteelSeries',
   },
   {
-    icon: Trophy,
-    title: 'Турниры',
-    description: 'Еженедельные соревнования',
+    index: '03',
+    title: 'Турниры каждую неделю',
+    description: 'Призовой фонд до 100 000 ₽',
   },
   {
-    icon: Users,
+    index: '04',
     title: 'Комьюнити',
-    description: 'Дружное геймерское сообщество',
+    description: 'Discord на 4 000+ игроков',
   },
 ];
 
 const About = () => {
+  const gridRef = useRef(null);
+  const visualColRef = useRef(null);
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const smoothScroll = initSmoothScroll({ reducedMotion });
+    return () => {
+      smoothScroll.destroy();
+    };
+  }, []);
+
   return (
     <AboutWrapper id="about" data-testid="section-about">
       <AboutContainer>
-        <AboutGrid>
-          <AboutImageWrapper>
-            <img
-              src="/images/gallery-01.avif"
-              alt="CyberArena — зона для игроков"
-            />
-          </AboutImageWrapper>
+        <DesktopHeaderSlot>
+          <SectionHeader
+            index="01"
+            kicker="О клубе"
+            testId="about-title"
+            title={
+              <>
+                Больше, чем <em>клуб</em>
+              </>
+            }
+            note="Место, где собираются те, для кого игра — это спорт, работа и способ провести ночь."
+          />
+        </DesktopHeaderSlot>
+
+        <AboutGrid ref={gridRef}>
+          <AboutVisualColumn ref={visualColRef}>
+            <MobileHeaderSlot>
+              <SectionHeader
+                index="01"
+                kicker="О клубе"
+                testId="about-title-mobile"
+                title={
+                  <>
+                    Больше, чем <em>клуб</em>
+                  </>
+                }
+                note="Место, где собираются те, для кого игра — это спорт, работа и способ провести ночь."
+              />
+            </MobileHeaderSlot>
+
+            <AboutImageWrapper>
+              <PCSceneCanvas gridRef={gridRef} visualColRef={visualColRef} />
+            </AboutImageWrapper>
+            <ImageCaption>
+              <span>PRO-линия · 12 мест</span>
+              <span>зал 02</span>
+            </ImageCaption>
+          </AboutVisualColumn>
 
           <AboutContent>
-            <AboutLabel>О нас</AboutLabel>
-            <AboutTitle data-testid="about-title">
-              Больше чем просто <span>компьютерный клуб</span>
-            </AboutTitle>
             <AboutText>
-              CyberArena — это пространство для настоящих геймеров. 
-              Мы создали место, где можно погрузиться в любимые игры на 
-              мощных ПК, встретиться с единомышленниками и принять участие 
-              в киберспортивных турнирах с денежными призами.
+              CyberArena — это пространство для настоящих геймеров.
+              Мы собрали машины, на которых не стыдно играть
+              на соревновательном
+              уровне, выстроили залы под разные форматы — от казуальных
+              посиделок до турниров со стримом — и сделали так, чтобы
+              сюда хотелось возвращаться.
             </AboutText>
 
             <FeaturesList>
               {features.map((feature) => (
-                <FeatureItem 
+                <FeatureItem
                   key={feature.title}
                   data-testid={`feature-${feature.title}`}
                 >
-                  <feature.icon />
+                  <FeatureIndex>{feature.index}</FeatureIndex>
                   <FeatureText>
                     <h4>{feature.title}</h4>
                     <p>{feature.description}</p>

@@ -11,6 +11,7 @@ export default defineConfig(async () => {
   ];
 
   return {
+    base: "./",
     plugins,
     resolve: {
       alias: {
@@ -23,6 +24,15 @@ export default defineConfig(async () => {
     build: {
       outDir: path.resolve(__dirname, "dist"),
       emptyOutDir: true,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            "vendor-react": ["react", "react-dom", "styled-components"],
+            "vendor-gsap": ["gsap", "lenis"],
+            "vendor-three": ["three"],
+          },
+        },
+      },
     },
     server: {
       fs: {
